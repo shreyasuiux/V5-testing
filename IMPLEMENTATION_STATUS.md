@@ -44,7 +44,7 @@ Successfully implemented a **production-ready, enterprise-grade architecture** w
 
 ### ✅ Phase 2: Asset Isolation Architecture (COMPLETE)
 
-**Objective**: Eliminate figma:asset dependencies from application build
+**Objective**: Eliminate src/assets/logo.png dependencies from application build
 
 **Deliverables**:
 - Created `/src/assets/assetManifest.ts` with 63 asset definitions
@@ -197,7 +197,7 @@ export function AppRoutes() {
 
 ### 3. Asset Injection Pattern
 
-**Purpose**: Eliminate figma:asset dependencies via props
+**Purpose**: Eliminate src/assets/logo.png dependencies via props
 
 ```typescript
 // /src/design/Desktop72.wrapper.tsx
@@ -343,7 +343,7 @@ export function Desktop72Wrapper({ assets, onSearchClick }) {
 
 ## Known Issues & Limitations
 
-### 1. Remaining figma:asset Imports
+### 1. Remaining src/assets/logo.png Imports
 
 **Status**: Architecture ready, refactoring optional
 
@@ -391,7 +391,7 @@ export function Desktop72Wrapper({ assets, onSearchClick }) {
 
 1. **Complete Asset Elimination** 📋
    - Refactor Desktop72 to accept props
-   - Achieve 100% figma:asset elimination
+   - Achieve 100% src/assets/logo.png elimination
    - Update wrapper to pass assets
 
 2. **Add 404 Page** 📋

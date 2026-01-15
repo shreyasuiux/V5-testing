@@ -2,11 +2,11 @@
 
 ## Overview
 
-This guide explains how to export all images from Figma and place them in the proper location to eliminate `figma:asset` dependencies.
+This guide explains how to export all images from Figma and place them in the proper location to eliminate `src/assets/logo.png` dependencies.
 
 ## Why This is Necessary
 
-- **Build Safety**: `figma:asset` imports create runtime dependencies on Figma Make's virtual module system
+- **Build Safety**: `src/assets/logo.png` imports create runtime dependencies on Figma Make's virtual module system
 - **Version Control**: Real image files can be committed to Git
 - **Regeneration Safety**: When Figma components are regenerated, asset imports won't be reintroduced
 - **Deployment**: Application can be deployed to any static host without Figma dependencies
@@ -222,7 +222,7 @@ Once assets are exported:
 2. ✅ Asset manifest already created (`/src/assets/assetManifest.ts`)
 3. 🔄 Update application pages to import from manifest (automated in next step)
 4. 🔄 Create wrapper for Desktop72.tsx to inject images as props
-5. ✅ Build application - should have zero `figma:asset` imports
+5. ✅ Build application - should have zero `src/assets/logo.png` imports
 
 ## Notes
 

@@ -37,7 +37,7 @@ The `/src/design/` directory contains **design-owned components** and their supp
 2. **Asset Injection**: Images imported from centralized manifest, passed as props
 3. **Type Safety**: TypeScript interfaces for all component props and assets
 4. **Regeneration Safety**: Figma components can be regenerated without breaking the app
-5. **Zero Build Dependencies**: No `figma:asset` imports in final build
+5. **Zero Build Dependencies**: No `src/assets/logo.png` imports in final build
 
 ## Files
 
@@ -95,7 +95,7 @@ import { homeAssets } from '@/assets/assetManifest';
 **❌ DON'T**:
 - Modify files in `/src/imports/` directly
 - Add business logic to design components
-- Import `figma:asset` in wrapper components
+- Import `src/assets/logo.png` in wrapper components
 - Mix design and application concerns
 - Bypass the wrapper pattern
 
@@ -302,7 +302,7 @@ test('HomePage loads with real assets', () => {
 
 ### Phase 1: Complete Asset Injection ⏳
 - Refactor Desktop72 to accept assets via props
-- Eliminate all remaining `figma:asset` imports
+- Eliminate all remaining `src/assets/logo.png` imports
 - Achieve 100% asset isolation
 
 ### Phase 2: Design System Extraction 📋

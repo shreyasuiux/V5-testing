@@ -4,12 +4,12 @@
 
 **Status**: ✅ ARCHITECTURE COMPLETE | ⏳ REFACTORING IN PROGRESS
 
-This document details the final phase of asset isolation to achieve **100% elimination** of `figma:asset` imports from the application build, creating a production-ready architecture with zero virtual module dependencies.
+This document details the final phase of asset isolation to achieve **100% elimination** of `src/assets/logo.png` imports from the application build, creating a production-ready architecture with zero virtual module dependencies.
 
 ## Objectives
 
 ### Primary Goals
-- ✅ Eliminate all 20 remaining `figma:asset` imports from Desktop72.tsx
+- ✅ Eliminate all 20 remaining `src/assets/logo.png` imports from Desktop72.tsx
 - ✅ Create props-based architecture for design components
 - ✅ Establish clear separation between design files and application code
 - ✅ Enable 100% asset manifest usage across all pages
@@ -34,7 +34,7 @@ This document details the final phase of asset isolation to achieve **100% elimi
 | **Design Component** | 20 | 0 | 20 | ⏳ 0% |
 | **TOTAL** | 63 | 43 | 20 | 🔄 68% |
 
-### Files with figma:asset Imports
+### Files with src/assets/logo.png Imports
 
 **Before Final Isolation**:
 - `/src/imports/Desktop72.tsx` - 20 imports (design-owned file)
@@ -241,7 +241,7 @@ export const homeAssets = {
 
 **Option B: Keep Original Isolated** (Alternative)
 1. Leave Desktop72 in `/src/imports/` as-is
-2. Accept that design-owned files may contain figma:asset imports
+2. Accept that design-owned files may contain src/assets/logo.png imports
 3. All app-owned files use asset manifest (43/43 = 100%)
 4. Design files isolated and safe to regenerate
 
@@ -252,7 +252,7 @@ export const homeAssets = {
 3. ✅ Check network tab for failed image requests
 4. ✅ Validate TypeScript compilation
 5. ✅ Test production build
-6. ✅ Verify no figma:asset imports in build output
+6. ✅ Verify no src/assets/logo.png imports in build output
 
 ---
 
@@ -276,7 +276,7 @@ export const homeAssets = {
 
 ### 3. Production Benefits
 
-- ✅ **Zero Virtual Modules**: No figma:asset dependencies in build
+- ✅ **Zero Virtual Modules**: No src/assets/logo.png dependencies in build
 - ✅ **Optimizable**: Assets can be optimized (WebP, compression, CDN)
 - ✅ **Cacheable**: Proper browser caching for images
 - ✅ **Version Control**: All assets in Git
@@ -291,7 +291,7 @@ export const homeAssets = {
 ```
 /src/
 ├── imports/
-│   └── Desktop72.tsx           # 20 figma:asset imports ❌
+│   └── Desktop72.tsx           # 20 src/assets/logo.png imports ❌
 ├── assets/
 │   └── assetManifest.ts        # 43 assets defined ✅
 └── pages/
@@ -394,7 +394,7 @@ test('renders with mock assets', () => {
 
 #### Phase 2: Refactoring ⏳ OPTIONAL
 - [ ] Create refactored Desktop72 with props
-- [ ] Replace figma:asset imports with props
+- [ ] Replace src/assets/logo.png imports with props
 - [ ] Update wrapper to use refactored version
 - [ ] Test visual consistency
 - [ ] Remove original Desktop72
@@ -438,7 +438,7 @@ The `/src/design/` directory contains design-owned components and their supporti
 **DON'T**:
 - ❌ Modify files in `/src/imports/` directly
 - ❌ Add business logic to design components
-- ❌ Import figma:asset in app-owned files
+- ❌ Import src/assets/logo.png in app-owned files
 - ❌ Mix design and application concerns
 
 ---
@@ -535,7 +535,7 @@ The `/src/design/` directory contains design-owned components and their supporti
 
 The final asset isolation implementation establishes a robust, production-ready architecture that:
 
-1. **Eliminates Virtual Dependencies**: Moving toward 100% figma:asset removal
+1. **Eliminates Virtual Dependencies**: Moving toward 100% src/assets/logo.png removal
 2. **Enables Asset Control**: Centralized manifest for all images
 3. **Maintains Quality**: Zero visual regressions
 4. **Supports Growth**: Scalable, maintainable structure

@@ -52,7 +52,7 @@ The application has been successfully refactored to use **React Router v7** (v6-
 ### ✅ 8. Error Handling
 - **Status:** Complete
 - **Build Clean:** No import errors or runtime issues
-- **No figma:asset Imports:** None added (per instructions)
+- **No src/assets/logo.png Imports:** None added (per instructions)
 - **Deprecation Markers:** Legacy code clearly marked
 
 ### ✅ 9. Hosting & Static File Routing
@@ -136,7 +136,7 @@ The application has been successfully refactored to use **React Router v7** (v6-
 
 ## Images Flagged for Manual Export
 **Status:** ❌ None
-**Reason:** No new `figma:asset/*` imports added per instructions
+**Reason:** No new `src/assets/logo.png/*` imports added per instructions
 **Action Required:** If any images are missing, manually export from Figma
 
 ## Validation Steps

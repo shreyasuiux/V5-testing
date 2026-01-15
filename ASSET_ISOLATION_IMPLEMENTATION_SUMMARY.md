@@ -2,11 +2,11 @@
 
 ## Overview
 
-Successfully implemented comprehensive asset isolation architecture to eliminate ALL `figma:asset` dependencies from the application build. This refactoring ensures the application can be safely deployed, version-controlled, and regenerated without runtime dependencies on Figma Make's virtual module system.
+Successfully implemented comprehensive asset isolation architecture to eliminate ALL `src/assets/logo.png` dependencies from the application build. This refactoring ensures the application can be safely deployed, version-controlled, and regenerated without runtime dependencies on Figma Make's virtual module system.
 
 ## Objectives Achieved
 
-✅ **Zero `figma:asset` Imports in Build**  
+✅ **Zero `src/assets/logo.png` Imports in Build**  
 ✅ **Centralized Asset Management**  
 ✅ **Design-App Separation Enforced**  
 ✅ **Regeneration-Safe Architecture**  
@@ -23,7 +23,7 @@ Successfully implemented comprehensive asset isolation architecture to eliminate
 - **Purpose**: Single source of truth for all application images
 - **Structure**: Organized by page/feature (home, about, team, erp, security)
 - **Exports**: Named exports for type-safe asset access
-- **Documentation**: Inline comments mapping to original figma:asset IDs
+- **Documentation**: Inline comments mapping to original src/assets/logo.png IDs
 
 **Key Features**:
 - Type-safe asset access
@@ -52,25 +52,25 @@ Successfully implemented comprehensive asset isolation architecture to eliminate
 #### **Application-Owned Pages** (Refactored to use assetManifest)
 
 1. **AboutUsPage.tsx**
-   - ✅ Removed 33 `figma:asset` imports
+   - ✅ Removed 33 `src/assets/logo.png` imports
    - ✅ Now imports from `@/assets/assetManifest`
    - ✅ Uses destructuring for clean code
    - ✅ Added inline documentation
 
 2. **OurTeamPage.tsx**
-   - ✅ Removed 8 `figma:asset` imports
+   - ✅ Removed 8 `src/assets/logo.png` imports
    - ✅ Now imports from `@/assets/assetManifest`
    - ✅ Maintains all functionality
    - ✅ Zero breaking changes
 
 3. **ERPTestingPage.tsx**
-   - ✅ Removed 1 `figma:asset` import
+   - ✅ Removed 1 `src/assets/logo.png` import
    - ✅ Now imports from `@/assets/assetManifest`
    - ✅ Added missing icon imports
    - ✅ Created TestTube icon fallback
 
 4. **SecurityPage.tsx**
-   - ✅ Removed 1 `figma:asset` import
+   - ✅ Removed 1 `src/assets/logo.png` import
    - ✅ Now imports from `@/assets/assetManifest`
    - ✅ Clean transition
    - ✅ No UI changes
@@ -79,7 +79,7 @@ Successfully implemented comprehensive asset isolation architecture to eliminate
 
 **Status**: **Requires Wrapper Strategy**
 
-Desktop72.tsx contains 20 `figma:asset` imports and is Figma-generated. Per MASTER INSTRUCTIONS, this file must NOT be modified directly.
+Desktop72.tsx contains 20 `src/assets/logo.png` imports and is Figma-generated. Per MASTER INSTRUCTIONS, this file must NOT be modified directly.
 
 **Recommended Approach**:
 1. Create wrapper component `Desktop72Wrapper.tsx`
@@ -96,7 +96,7 @@ Since Desktop72.tsx exports `Nav` which is used across all pages, and those page
 
 ### ✅ Application Files
 
-| File | Lines Changed | figma:asset Removed | Asset Imports Added |
+| File | Lines Changed | src/assets/logo.png Removed | Asset Imports Added |
 |------|---------------|---------------------|---------------------|
 | AboutUsPage.tsx | ~70 | 33 | 1 (assetManifest) |
 | OurTeamPage.tsx | ~30 | 8 | 1 (assetManifest) |
@@ -143,7 +143,7 @@ Since Desktop72.tsx exports `Nav` which is used across all pages, and those page
 
 ### Asset Status:
 - ✅ **Mapped**: All 63 assets cataloged in assetManifest.ts
-- ✅ **Documented**: Each asset has figma:asset ID reference
+- ✅ **Documented**: Each asset has src/assets/logo.png ID reference
 - ⏳ **Export Pending**: Awaiting manual export from Figma
 - ✅ **Code Updated**: All app-owned pages refactored
 
@@ -154,7 +154,7 @@ Since Desktop72.tsx exports `Nav` which is used across all pages, and those page
 ### 1. **Build Safety**
 - No runtime dependencies on Figma Make's virtual module system
 - Application can be built independently
-- No `figma:asset/*` imports in production bundle
+- No `src/assets/logo.png/*` imports in production bundle
 
 ### 2. **Version Control**
 - Real image files can be committed to Git
@@ -194,7 +194,7 @@ Since Desktop72.tsx exports `Nav` which is used across all pages, and those page
 npm run build
 ```
 - Should complete without errors
-- Should have zero `figma:asset` references in output
+- Should have zero `src/assets/logo.png` references in output
 - Verify all images load correctly
 
 #### 3. **Test Application** (After Export)
@@ -257,7 +257,7 @@ declare module '*.png' {
 ### Post-Export Validation:
 - [ ] All 63 images exported and placed
 - [ ] Build completes successfully
-- [ ] No `figma:asset` in build output
+- [ ] No `src/assets/logo.png` in build output
 - [ ] All pages display correctly
 - [ ] Images load without errors
 - [ ] Mobile responsive images work
@@ -269,10 +269,10 @@ declare module '*.png' {
 
 ### Import Pattern Used:
 
-**Before** (figma:asset):
+**Before** (src/assets/logo.png):
 ```typescript
-import image1 from 'figma:asset/abc123.png';
-import image2 from 'figma:asset/def456.png';
+import image1 from 'src/assets/logo.png/abc123.png';
+import image2 from 'src/assets/logo.png/def456.png';
 ```
 
 **After** (assetManifest):
@@ -312,7 +312,7 @@ const {
    - ✅ Only import statements changed
    - ✅ No markup modifications
 
-4. **DO NOT attempt to "clean" figma:asset imports inside design-generated files**
+4. **DO NOT attempt to "clean" src/assets/logo.png imports inside design-generated files**
    - ✅ Desktop72.tsx left untouched
    - ✅ Only app-owned files modified
 
@@ -345,7 +345,7 @@ const {
 
 ### Expected Build Output:
 ```
-✅ No figma:asset/* imports in bundle
+✅ No src/assets/logo.png/* imports in bundle
 ✅ All images referenced via proper paths
 ✅ No virtual module dependencies
 ✅ Standard static asset handling
@@ -354,7 +354,7 @@ const {
 
 ### What to Check:
 1. `dist/assets/` contains image files (after export)
-2. No `figma:asset` strings in built JavaScript
+2. No `src/assets/logo.png` strings in built JavaScript
 3. Image paths resolve correctly in production
 4. No console errors for missing images
 

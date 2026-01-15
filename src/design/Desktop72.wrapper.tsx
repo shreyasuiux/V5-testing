@@ -2,13 +2,13 @@
  * DESKTOP72 WRAPPER COMPONENT
  * 
  * This wrapper provides backward compatibility for the Desktop72 component
- * while enabling asset injection via props instead of direct figma:asset imports.
+ * while enabling asset injection via props instead of direct src/assets/logo.png imports.
  * 
  * Architecture:
  * - Accepts assets as props (from asset manifest)
  * - Passes them to Desktop72 via props
  * - Provides fallbacks for missing assets
- * - Eliminates all figma:asset dependencies
+ * - Eliminates all src/assets/logo.png dependencies
  * 
  * Usage:
  *   import { Desktop72Wrapper } from '@/design/Desktop72.wrapper';
@@ -60,7 +60,7 @@ const defaultAssets: Desktop72Assets = {
  * Desktop72 Wrapper Component
  * 
  * Wraps the original Desktop72 component and provides asset injection
- * via props instead of direct figma:asset imports.
+ * via props instead of direct src/assets/logo.png imports.
  * 
  * @param props - Desktop72Props with optional assets and callbacks
  * @returns Wrapped Desktop72 component with injected assets
@@ -72,7 +72,7 @@ export function Desktop72Wrapper({ assets, onSearchClick }: Desktop72Props) {
     ...assets,
   };
 
-  // For now, Desktop72Original still uses figma:asset imports internally
+  // For now, Desktop72Original still uses src/assets/logo.png imports internally
   // This wrapper provides the architecture for future asset prop injection
   // Once Desktop72 is refactored to accept assets as props, we'll pass resolvedAssets
   

@@ -256,7 +256,7 @@ This refactor introduces **no breaking changes**:
 - Mobile functionality unchanged
 
 ### TODO for Manual Export
-❌ No `figma:asset/*` imports were added (as instructed)
+❌ No `src/assets/logo.png/*` imports were added (as instructed)
 ❌ If any images are missing, they need manual export from Figma
 
 ## Conclusion

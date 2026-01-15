@@ -13,7 +13,7 @@
  * Asset Injection:
  * - Home page assets imported from @/assets/assetManifest
  * - Assets passed as props to Desktop72Wrapper
- * - Zero figma:asset dependencies (100% isolated)
+ * - Zero src/assets/logo.png dependencies (100% isolated)
  */
 
 import React from 'react';

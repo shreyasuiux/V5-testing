@@ -173,7 +173,7 @@ function AppContent() {
 **Purpose**: Figma-generated presentational component  
 **Ownership**: Design-owned  
 **Modifications**: **DO NOT MODIFY**  
-**Note**: Contains 20 `figma:asset` imports - isolated to this file
+**Note**: Contains 20 `src/assets/logo.png` imports - isolated to this file
 
 ### Routing Layer (`/src/routes/AppRoutes.tsx`)
 **Purpose**: Centralized route configuration  
@@ -272,12 +272,12 @@ All routes are real URLs that work on refresh and direct access:
 
 1. **Design Files Separated** ⚠️
    - Desktop72.tsx remains in `/src/imports/` (Figma-generated)
-   - Contains 20 `figma:asset` imports (isolated to design file)
+   - Contains 20 `src/assets/logo.png` imports (isolated to design file)
    - **Note**: Per Master Instructions, design files can be in `/src/design/` 
      but Desktop72 is left in `/src/imports/` as it's Figma-generated
 
 2. **No Asset Imports in Design** ⚠️
-   - Desktop72.tsx contains `figma:asset` imports
+   - Desktop72.tsx contains `src/assets/logo.png` imports
    - **Justification**: Design-owned file, regeneration-safe
    - All app-owned pages use asset manifest (43 imports eliminated)
 
@@ -482,7 +482,7 @@ location / {
 
 **Location**: `/src/imports/Desktop72.tsx`  
 **Ownership**: Design-owned (Figma-generated)  
-**Asset Imports**: 20 `figma:asset` imports (isolated)  
+**Asset Imports**: 20 `src/assets/logo.png` imports (isolated)  
 **Status**: **Architecture implemented for isolation**
 
 **Architecture Update**:
@@ -513,7 +513,7 @@ HomePage → Desktop72Wrapper → Desktop72Original
 
 **Future Options**:
 1. **Refactor Desktop72** (recommended) - Create props-based version for 100% elimination
-2. **Keep Original Isolated** (alternative) - Accept design files may use figma:asset
+2. **Keep Original Isolated** (alternative) - Accept design files may use src/assets/logo.png
 3. **Wait for Image Export** per `/ASSET_EXPORT_GUIDE.md` - Export all 63 images first
 
 ---

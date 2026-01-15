@@ -2,12 +2,12 @@
  * TYPE DEFINITIONS FOR DESKTOP72 DESIGN COMPONENT
  * 
  * This file defines the prop interfaces for the Desktop72 design component.
- * Assets are injected via props instead of direct imports to eliminate figma:asset dependencies.
+ * Assets are injected via props instead of direct imports to eliminate src/assets/logo.png dependencies.
  * 
  * Architecture:
  * - Design files receive assets as props
  * - Application code imports from asset manifest
- * - Zero figma:asset dependencies in build
+ * - Zero src/assets/logo.png dependencies in build
  */
 
 /**
